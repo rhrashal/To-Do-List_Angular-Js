@@ -1,0 +1,42 @@
+<html ng-app="phonecatApp">
+<head>
+  <!-- <script src="lib/angular/angular.js"></script> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body ng-controller="PhoneListController">
+
+<div>
+    <input name="name" class="form-control" type="text" placeholder="Name" ng-model="todo.name">
+    <input name="discription" class="form-control" type="text" ng-model="todo.discription" placeholder="discription">
+    <button class="btn btn-info" ng-click="AddData()">{{btn}}</button>
+</div>
+
+
+    <table class="table table-border">
+        <tr>
+            <th>Name</th>
+            <th>Discription</th>
+            <th>action</th>            
+        </tr>
+        <tr ng-repeat="phone in phones">
+            <th>{{phone.name}}</th>
+            <th>{{phone.discription}}</th>
+            <th>
+                <button class="btn btn-danger" ng-click="removeItem($index)"> X</button>
+                <button class="btn btn-warning" ng-click="editItem($index)"> #</button>
+
+            </th>            
+        </tr>
+    </table>
+  <!-- <ul>
+    <li ng-repeat="phone in phones">
+      <span>{{phone.name}}</span>
+      <p>{{phone.snippet}}</p>
+    </li>
+  </ul> -->
+
+</body>
+</html>
