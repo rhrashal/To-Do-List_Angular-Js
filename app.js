@@ -45,12 +45,13 @@ $scope.AddData = function AddData(){
     $scope.todo = {};
     $scope.btn = "Add";
     $scope.dataIndex= "";
+    $scope.isShow = false;
 }
 
 
 
 $scope.todo = {};
-
+$scope.isShow = false;
 
 $scope.removeItem = function removeItem(n){
     console.log(n )
@@ -59,9 +60,12 @@ $scope.removeItem = function removeItem(n){
 $scope.editItem = function editItem(n){
     console.log(n )
     $scope.btn = "Edit";
+    $scope.isShow = true;
     $scope.todo.name =$scope.phones[n].name;
     $scope.todo.discription = $scope.phones[n].discription;
     $scope.dataIndex = n;
 }
-
+$scope.ShowAdd =  function ShowAdd(){
+  $scope.isShow = true;
+}
 });

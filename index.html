@@ -8,29 +8,44 @@
 </head>
 <body ng-controller="PhoneListController">
 
-<div>
-    <input name="name" class="form-control" type="text" placeholder="Name" ng-model="todo.name">
-    <input name="discription" class="form-control" type="text" ng-model="todo.discription" placeholder="discription">
-    <button class="btn btn-info" ng-click="AddData()">{{btn}}</button>
-</div>
 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>
+          <strong>To Do List</strong>
+          <button class="btn btn-primary" ng-click="ShowAdd()">Add</button>
+        </h2>        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
 
-    <table class="table table-border">
-        <tr>
-            <th>Name</th>
-            <th>Discription</th>
-            <th>action</th>            
+        <table class="table table-border">
+          <tr>
+              <th>Name</th>
+              <th>Discription</th>
+              <th>action</th>            
+          </tr>
+          <tr ng-repeat="phone in phones">
+              <th>{{phone.name}}</th>
+              <th>{{phone.discription}}</th>
+              <th>
+                  <button class="btn btn-danger" ng-click="removeItem($index)"> X</button>
+                  <button class="btn btn-warning" ng-click="editItem($index)"> #</button>
+  
+              </th>            
+          </tr>
+          <tr ng-show="isShow">
+            <th> <input name="name" class="form-control" type="text" placeholder="Name" ng-model="todo.name"></th>
+            <th> <input name="discription" class="form-control" type="text" ng-model="todo.discription" placeholder="discription"></th>
+            <th>     <button class="btn btn-info" ng-click="AddData()">{{btn}}</button>  </th>            
         </tr>
-        <tr ng-repeat="phone in phones">
-            <th>{{phone.name}}</th>
-            <th>{{phone.discription}}</th>
-            <th>
-                <button class="btn btn-danger" ng-click="removeItem($index)"> X</button>
-                <button class="btn btn-warning" ng-click="editItem($index)"> #</button>
+      </table>
+      </div>
+    </div>
+  </div>
 
-            </th>            
-        </tr>
-    </table>
   <!-- <ul>
     <li ng-repeat="phone in phones">
       <span>{{phone.name}}</span>
